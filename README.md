@@ -39,14 +39,14 @@ Then open your browser to [localhost:3000](http://localhost:3000).
 
 ## How to Update the Website
 
-The homepage is hosted via [GitHub pages](https://pages.github.com/). The [gh-pages branch](https://github.com/samotari/cryptoterminal.eu/tree/gh-pages) in this repository contain the web files that are served to visitors of cryptoterminal.eu.
+The homepage is hosted via [GitHub pages](https://pages.github.com/). The [docs directory](https://github.com/samotari/cryptoterminal.eu/tree/master/docs) in this repository contains the web files that are served to visitors of cryptoterminal.eu.
 
-To commit the latest build to the gh-pages branch:
+To create a new commit of the latest build:
 ```bash
 npm run commit
 ```
 * Write a message that summarizes the changes made.
-* Open a pull-request to the upstream gh-pages branch.
+* Open a pull-request to the upstream master branch.
 * Once merged, the changes should be visible within a few minutes.
 
 
