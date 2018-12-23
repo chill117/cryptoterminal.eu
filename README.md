@@ -37,7 +37,7 @@ npm run build && npm run server
 Then open your browser to [localhost:3000](http://localhost:3000).
 
 
-## How to Push Changes
+## How to Update the Website
 
 The homepage is hosted via [GitHub pages](https://pages.github.com/). The [gh-pages branch](https://github.com/samotari/cryptoterminal.eu/tree/gh-pages) in this repository contain the web files that are served to visitors of cryptoterminal.eu.
 
