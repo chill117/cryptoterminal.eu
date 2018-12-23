@@ -1,0 +1,36 @@
+{
+  "name": "cryptoterminal.eu",
+  "version": "1.0.0",
+  "description": "Source files and build scripts for the cryptoterminal.eu website",
+  "private": true,
+  "dependencies": {
+    "cssnano": "4.1.8",
+    "http-server": "0.11.1",
+    "open-sans-fontface": "https://github.com/samotari/open-sans/archive/1.4.2.tar.gz",
+    "postcss-cli": "6.1.0"
+  },
+  "scripts": {
+    "build": "make all",
+    "commit": "make commit",
+    "server": "./node_modules/.bin/http-server ./public -p 3000 -a localhost"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samotari/cryptoterminal.eu.git"
+  },
+  "author": {
+    "name": "Charles Hill",
+    "email": "chill@degreesofzero.com"
+  },
+  "contributors": [
+    {
+      "name": "Carlos Garcia Ortiz",
+      "email": "yo@carlosgarciaortiz.com"
+    }
+  ],
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/samotari/cryptoterminal.eu/issues"
+  },
+  "homepage": "https://github.com/samotari/cryptoterminal.eu#readme"
+}
