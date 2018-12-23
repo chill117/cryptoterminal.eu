@@ -1,6 +1,6 @@
 # cryptoterminal.eu
 
-This repository contains the source files and build scripts for [cryptoterminal.eu](https://cryptoterminal.eu/) - the homepage of for the [CryptoTerminal app](https://github.com/samotari/crypto-terminal).
+This repository contains the source files and build scripts for [cryptoterminal.eu](https://cryptoterminal.eu/).
 
 * [Requirements](#requirements)
 * [Getting Started](#getting-started)
