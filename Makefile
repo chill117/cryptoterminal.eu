@@ -58,19 +58,24 @@ copy:
 	# HTML files:
 	cp -r $(SRC)/*.html $(PUBLIC)/
 
-CSS_FILES=$(CSS)/fonts.css $(CSS)/reset.css $(CSS)/style.css $(CSS)/pages/*.css
-CSS_MIN_FILES=$(addprefix $(BUILD)/, $(patsubst %.css, %.min.css, $(CSS_FILES)))
-$(CSS_MIN_FILES): $(CSS_FILES)
-	for file in $(CSS_FILES); do \
-		dirPath="$(BUILD)/$$(dirname "$$file")"; \
-		mkdir -p $$dirPath; \
-		outputFile="$$(basename "$$file" .css).min.css"; \
-		$(BIN)/postcss $$file -o $$dirPath/$$outputFile; \
-	done
+$(BUILD)/css/*.min.css: $(CSS)/*.css
+	mkdir -p $(BUILD)/css
+	$(BIN)/postcss $^ --ext .min.css --dir $(BUILD)/css
 
-$(BUILD_ALL_CSS): $(CSS_MIN_FILES)
+$(BUILD)/css/pages/*.min.css: $(CSS)/pages/*.css
+	mkdir -p $(BUILD)/css/pages
+	$(BIN)/postcss $^ --ext .min.css --dir $(BUILD)/css/pages
+
+CSS_FILES=$(CSS)/fonts.css\
+$(CSS)/reset.css\
+$(CSS)/style.css\
+$(CSS)/pages/*.css
+CSS_MIN_FILES=$(subst $(SRC)/, $(BUILD)/, $(patsubst %.css, %.min.css, $(CSS_FILES)))
+$(BUILD_ALL_CSS): $(BUILD)/css/*.min.css $(BUILD)/css/pages/*.min.css
+	rm -f $(BUILD_ALL_CSS)
 	for file in $(CSS_MIN_FILES); do \
 		cat $$file >> $(BUILD_ALL_CSS); \
+		echo "" >> $(BUILD_ALL_CSS); \
 	done
 
 $(PUBLIC_ALL_CSS): $(BUILD_ALL_CSS)
