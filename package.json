@@ -5,14 +5,15 @@
   "private": true,
   "dependencies": {
     "cssnano": "4.1.8",
-    "http-server": "0.11.1",
+    "http-server": "0.12.1",
     "open-sans-fontface": "https://github.com/samotari/open-sans/archive/1.4.2.tar.gz",
     "postcss-cli": "6.1.0"
   },
   "scripts": {
     "build": "make all",
     "commit": "make commit",
-    "server": "./node_modules/.bin/http-server ./public -p 3000 -a localhost"
+    "server": "./node_modules/.bin/http-server ./public -p 3000 -a localhost",
+    "start": "npm run build && npm run server"
   },
   "repository": {
     "type": "git",
