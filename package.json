@@ -3,14 +3,8 @@
   "version": "1.0.0",
   "description": "Source files and build scripts for the cryptoterminal.eu website",
   "private": true,
-  "dependencies": {
-    "cssnano": "4.1.8",
-    "http-server": "0.12.1",
-    "open-sans-fontface": "https://github.com/samotari/open-sans/archive/1.4.2.tar.gz",
-    "postcss-cli": "6.1.0"
-  },
   "scripts": {
-    "build": "make all",
+    "build": "make clean all",
     "commit": "make commit",
     "server": "./node_modules/.bin/http-server ./public -p 3000 -a localhost",
     "start": "npm run build && npm run server"
@@ -33,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/samotari/cryptoterminal.eu/issues"
   },
-  "homepage": "https://github.com/samotari/cryptoterminal.eu#readme"
+  "homepage": "https://github.com/samotari/cryptoterminal.eu#readme",
+  "dependencies": {
+    "http-server": "0.12.1",
+    "open-sans-fontface": "https://github.com/samotari/open-sans/archive/1.4.2.tar.gz"
+  }
 }

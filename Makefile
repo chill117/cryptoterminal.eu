@@ -11,13 +11,13 @@
 ## Variables
 BIN=node_modules/.bin
 BUILD=build
-BUILD_ALL_CSS=$(BUILD)/all.min.css
+BUILD_ALL_CSS=$(BUILD)/all.css
 SRC=src
 CSS=$(SRC)/css
 DIST=docs/
 IMAGES=$(SRC)/images
 PUBLIC=public
-PUBLIC_ALL_CSS=$(PUBLIC)/css/all.min.css
+PUBLIC_ALL_CSS=$(PUBLIC)/css/all.css
 SCRIPTS=scripts
 
 # Targets
@@ -58,22 +58,15 @@ copy:
 	# HTML files:
 	cp -r $(SRC)/*.html $(PUBLIC)/
 
-$(BUILD)/css/*.min.css: $(CSS)/*.css
-	mkdir -p $(BUILD)/css
-	$(BIN)/postcss $^ --ext .min.css --dir $(BUILD)/css
-
-$(BUILD)/css/pages/*.min.css: $(CSS)/pages/*.css
-	mkdir -p $(BUILD)/css/pages
-	$(BIN)/postcss $^ --ext .min.css --dir $(BUILD)/css/pages
-
 CSS_FILES=$(CSS)/fonts.css\
 $(CSS)/reset.css\
 $(CSS)/style.css\
 $(CSS)/pages/*.css
-CSS_MIN_FILES=$(subst $(SRC)/, $(BUILD)/, $(patsubst %.css, %.min.css, $(CSS_FILES)))
-$(BUILD_ALL_CSS): $(BUILD)/css/*.min.css $(BUILD)/css/pages/*.min.css
+$(BUILD_ALL_CSS): $(CSS)/
+	mkdir -p $$(dirname $@)
 	rm -f $(BUILD_ALL_CSS)
-	for file in $(CSS_MIN_FILES); do \
+	for file in $(CSS_FILES); do \
+		echo "/* $$file */" >> $(BUILD_ALL_CSS); \
 		cat $$file >> $(BUILD_ALL_CSS); \
 		echo "" >> $(BUILD_ALL_CSS); \
 	done
